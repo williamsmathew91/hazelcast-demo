@@ -1,0 +1,22 @@
+apply plugin: 'java'
+
+dependencies {
+            compile "com.hazelcast:hazelcast:2.6"
+            compile "com.hazelcast:hazelcast-client:2.6"
+}
+
+repositories {
+        mavenCentral()
+
+	maven {
+            url "https://portal.api.bskyb.com/archiva/repository/sky-releases"
+            credentials {
+                username archivaUser
+                password archivaPass
+            }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.9'
+}
